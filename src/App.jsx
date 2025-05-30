@@ -27,7 +27,7 @@ function App() {
   const [report, setReport] = useState("");
 
   const runGridStrategy = async () => {
-    const url = `http://fund.eastmoney.com/pingzhongdata/${fundCode}.js`;
+    const url = `https://fund.eastmoney.com/pingzhongdata/${fundCode}.js`;
     const res = await fetch(url);
     const jsText = await res.text();
     const netWorthData = parseFundData(jsText);
@@ -77,7 +77,7 @@ function App() {
     <div className="container">
       <input
         type="text"
-        placeholder="基金代码（如 161725）"
+        placeholder="基金代码（如 161725)"
         value={fundCode}
         onChange={e => setFundCode(e.target.value)}
         className="input"
@@ -86,7 +86,7 @@ function App() {
         <input
           type="number"
           step="0.01"
-          placeholder="网格比例（如 0.05）"
+          placeholder="网格比例（如 0.05)"
           value={gridSize}
           onChange={e => setGridSize(parseFloat(e.target.value))}
           className="input"
